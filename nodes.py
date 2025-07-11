@@ -62,7 +62,7 @@ class Qwen25VL(ModelsInfo):
         seed: int = -1,
     ):
         model_info = self.models_info["mps"][1]
-        self.model_checkpoint = os.path.join(folder_paths.base_path, model_info['local_path'], model_info['repo_id'].split("/")[-1])
+        self.model_checkpoint = os.path.join(folder_paths.base_path, model_info['local_path'])
         # 如果模型不存在就下载
         if not os.path.exists(self.model_checkpoint):
             from huggingface_hub import snapshot_download
@@ -137,12 +137,12 @@ class Qwen3(ModelsInfo):
         if direct:
             return (user_prompt,)
         model_info = self.models_info["mps"][0]
-        self.model_checkpoint = os.path.join(folder_paths.base_path, model_info['local_path'], model_info['repo_id'].split("/")[-1])
+        self.model_checkpoint = os.path.join(folder_paths.base_path, model_info['local_path'])
         # 如果模型不存在就下载
         if not os.path.exists(self.model_checkpoint):
             from huggingface_hub import snapshot_download
             # 使用 huggingface 下载
-            file_path = snapshot_download(repo_id=model_info['repo_id'], local_dir=self.model_checkpoint,local_dir_use_symlinks=False)
+            file_path = snapshot_download(repo_id=model_info['repo_id'], local_dir=self.model_chnaeckpoint,local_dir_use_symlinks=False)
             print(f"Model downloaded to: {file_path}")
         # 加载模型
         from mlx_lm import load, generate

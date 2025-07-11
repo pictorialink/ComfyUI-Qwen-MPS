@@ -2,11 +2,11 @@
     "mps": [
         {
             "repo_id": "Qwen/Qwen3-8B-MLX-4bit",
-            "local_path": "models/LLM"
+            "local_path": "models/LLM/Qwen3-8B-MLX-4bit"
         },
         {
             "repo_id": "mlx-community/Qwen2.5-VL-7B-Instruct-4bit",
-            "local_path": "models/LLM"
+            "local_path": "models/LLM/Qwen2.5-VL-7B-Instruct-4bit"
         }
     ]
 }
